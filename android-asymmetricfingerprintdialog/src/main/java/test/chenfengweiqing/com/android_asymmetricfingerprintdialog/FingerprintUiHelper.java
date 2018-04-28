@@ -16,10 +16,9 @@
 
 package test.chenfengweiqing.com.android_asymmetricfingerprintdialog;
 
-import com.google.common.annotations.VisibleForTesting;
-
 import android.hardware.fingerprint.FingerprintManager;
 import android.os.CancellationSignal;
+import android.support.annotation.VisibleForTesting;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -34,8 +33,10 @@ import javax.inject.Inject;
 @SuppressWarnings("MissingPermission")
 public class FingerprintUiHelper extends FingerprintManager.AuthenticationCallback {
 
-    @VisibleForTesting static final long ERROR_TIMEOUT_MILLIS = 1600;
-    @VisibleForTesting static final long SUCCESS_DELAY_MILLIS = 1300;
+    @VisibleForTesting
+    static final long ERROR_TIMEOUT_MILLIS = 1600;
+    @VisibleForTesting
+    static final long SUCCESS_DELAY_MILLIS = 1300;
 
     private final FingerprintManager mFingerprintManager;
     private final ImageView mIcon;
@@ -43,7 +44,8 @@ public class FingerprintUiHelper extends FingerprintManager.AuthenticationCallba
     private final Callback mCallback;
     private CancellationSignal mCancellationSignal;
 
-    @VisibleForTesting boolean mSelfCancelled;
+    @VisibleForTesting
+    boolean mSelfCancelled;
 
     /**
      * Builder class for {@link FingerprintUiHelper} in which injected fields from Dagger
@@ -68,7 +70,7 @@ public class FingerprintUiHelper extends FingerprintManager.AuthenticationCallba
      * only the {@link FingerprintUiHelperBuilder} class.
      */
     private FingerprintUiHelper(FingerprintManager fingerprintManager,
-            ImageView icon, TextView errorTextView, Callback callback) {
+                                ImageView icon, TextView errorTextView, Callback callback) {
         mFingerprintManager = fingerprintManager;
         mIcon = icon;
         mErrorTextView = errorTextView;
