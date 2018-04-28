@@ -25,6 +25,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import test.chenfengweiqing.com.android_cardreader.R;
 import test.chenfengweiqing.com.android_cardreader.common.logger.Log;
 
 /**

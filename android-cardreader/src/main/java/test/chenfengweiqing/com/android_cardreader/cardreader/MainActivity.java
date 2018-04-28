@@ -23,6 +23,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ViewAnimator;
 
+import test.chenfengweiqing.com.android_cardreader.R;
 import test.chenfengweiqing.com.android_cardreader.common.activities.SampleActivityBase;
 import test.chenfengweiqing.com.android_cardreader.common.logger.Log;
 import test.chenfengweiqing.com.android_cardreader.common.logger.LogFragment;
