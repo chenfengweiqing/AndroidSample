@@ -1,1 +1,1 @@
-include ':android-AccelerometerPlay'
+include ':android-AccelerometerPlay', ':android-actionbarcompat-basic'
