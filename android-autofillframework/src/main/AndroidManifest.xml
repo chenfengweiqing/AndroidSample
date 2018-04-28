@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="test.chenfengweiqing.com.android_autofillframework">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.Light">
+        <activity
+            android:name=".MainActivity"
+            android:taskAffinity=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".commoncases.StandardSignInActivity" />
+        <activity android:name=".commoncases.StandardAutoCompleteSignInActivity" />
+        <activity android:name=".commoncases.VirtualSignInActivity" />
+        <activity android:name=".WelcomeActivity" />
+        <activity android:name=".edgecases.CreditCardActivity" />
+        <activity android:name=".commoncases.CreditCardSpinnersActivity" />
+        <activity android:name=".commoncases.EmailComposeActivity" />
+        <activity android:name=".commoncases.CreditCardCompoundViewActivity" />
+        <activity android:name=".commoncases.CreditCardDatePickerActivity" />
+        <activity android:name=".edgecases.CreditCardAntiPatternActivity" />
+        <activity
+            android:name=".edgecases.MultiplePartitionsActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".commoncases.WebViewSignInActivity" />
+        <activity android:name=".edgecases.MultipleStepsSignInActivity" />
+        <activity android:name=".edgecases.MultipleStepsCreditCardActivity" />
+    </application>
+
+</manifest>
