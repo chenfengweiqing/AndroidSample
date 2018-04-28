@@ -1,1 +1,1 @@
-include ':android-AccelerometerPlay', ':android-actionbarcompat-basic'
+include ':android-AccelerometerPlay', ':android-actionbarcompat-basic', ':android-actionbarcompat-listpopupmenu', ':android-actionbarcompat-shareactionprovider', ':android-actionbarcompat-styled', ':android-activenotifications', ':android-activityinstrumentation'
