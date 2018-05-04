@@ -27,4 +27,55 @@
     <string name="send_1_conversation">Send 1 conversation with 1 message</string>
     <string name="send_1_conv_3_messages">Send 1 conversation with 3 messages</string>
     <string name="clear_log">Clear Log</string>
+    <string name="welcome_message">Welcome to Network Connect!
+        Click FETCH to fetch the first 500 characters of raw HTML from www.google.com.
+    </string>
+    <string name="fetch_text">Fetch</string>
+    <string name="clear_text">Clear</string>
+    <string name="connection_error">Connection error.</string>
+    <string name="fetch_cancelled">Fetch cancelled.</string>
+    <string name="btn1_description">Start foreground service</string>
+    <string name="btn1_title" >Start</string>
+    <string name="simple_service_title">Simple Service</string>
+    <string name="simple_service_desc">Simple Service from the OTest app</string>
+
+    <string name="main_create_noti2_btn">Send</string>
+
+    <string name="btnA_title">Go to Settings</string>
+    <string name="noti_channel_default">Primary Channel</string>
+    <string name="noti1_title">Notification 1 Title</string>
+    <string name="primary1_body">The content</string>
+    <string name="noti2_title">Second notification</string>
+    <string name="secondary1_body">Notification body text.</string>
+    <string name="noti_channel_second">Secondary Channel</string>
+
+    <string name="main_primary_title">Primary Channel</string>
+    <string name="main_primary_send1">Send 1</string>
+    <string name="main_primary_send2">Send 2</string>
+    <string name="main_primary_config">Go to primary settings</string>
+
+    <string name="main_secondary_title">Secondary Channel</string>
+    <string name="main_secondary_send1">Send 1</string>
+    <string name="main_secondary_send2">Send 2</string>
+    <string name="main_secondary_config">Go to secondary settings</string>
+    <string name="primary2_body">Second Notification for Primary Channel</string>
+    <string name="secondary2_body">Second Notification for Secondary Channel</string>
+    <string name="play">Play</string>
+    <string name="pause">Pause</string>
+    <string name="info">Info</string>
+    <string name="info_description">Information about this video</string>
+    <string name="info_uri" translatable="false">https://peach.blender.org/</string>
+    <string name="fast_forward">Fast forward</string>
+    <string name="fast_rewind">Fast rewind</string>
+    <string name="minimize">Minimize</string>
+    <string name="enter_picture_in_picture">Enter Picture-in-Picture mode</string>
+    <string name="explanation"><![CDATA[
+    This sample demonstrates basic usage of Picture-in-Picture mode for handheld devices.
+    The sample plays a video. The video keeps on playing when the app is turned in to
+    Picture-in-Picture mode. On Picture-in-Picture screen, the app shows an action item to pause or
+    resume the video.
+    ]]></string>
+    <string name="switch_custom">Switch to custom actions example</string>
+    <string name="switch_media_session">Switch to using MediaSession</string>
+    <string name="title_bigbuckbunny">Big Buck Bunny</string>
 </resources>

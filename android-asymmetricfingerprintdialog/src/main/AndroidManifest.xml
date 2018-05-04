@@ -3,6 +3,12 @@
     package="test.chenfengweiqing.com.android_asymmetricfingerprintdialog">
 
     <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <!-- The following permissions are only requested if the device is on M or above.
+     On older platforms these permissions are not requested and will not be available. -->
+    <uses-permission-sdk-23 android:name="android.permission.READ_CONTACTS" />
+    <uses-permission-sdk-23 android:name="android.permission.WRITE_CONTACTS" />
 
     <application
         android:allowBackup="true"
@@ -23,6 +29,7 @@
         <activity
             android:name=".SettingsActivity"
             android:label="@string/action_settings" />
+        <activity android:name=".runtimepermissions.MainActivity" />
     </application>
 
 </manifest>

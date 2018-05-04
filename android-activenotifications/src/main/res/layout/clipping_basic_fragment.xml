@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
+<?xml version="1.0" encoding="UTF-8"?><!--
  Copyright 2014 The Android Open Source Project
 
  Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,36 +14,37 @@
  limitations under the License.
 -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
 
     <FrameLayout
-            android:id="@+id/frame"
+        android:id="@+id/frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/button"
+        android:addStatesFromChildren="true"
+        android:background="@drawable/gradient_drawable"
+        android:foreground="?android:attr/selectableItemBackground">
+
+        <TextView
+            android:id="@+id/text_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/gradient_drawable"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:addStatesFromChildren="true"
-            android:layout_above="@+id/button" >
-        <TextView
-                android:id="@+id/text_view"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textSize="26sp"
-                android:textColor="@android:color/white"
-                android:layout_marginLeft="64dp"
-                android:layout_marginRight="64dp"
-                android:gravity="center" />
+            android:layout_marginLeft="64dp"
+            android:layout_marginRight="64dp"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:textSize="26sp" />
     </FrameLayout>
 
     <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/clip_button"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="8dp"/>
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/clip_button" />
 </RelativeLayout>

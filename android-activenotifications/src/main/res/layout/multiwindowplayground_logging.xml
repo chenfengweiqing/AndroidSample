@@ -17,8 +17,8 @@
   -->
 
 <fragment xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
     android:id="@+id/log_fragment"
-    android:name="com.example.android.common.logger.LogFragment" />
+    android:name="test.chenfengweiqing.com.android_activenotifications.common.logger.LogFragment"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" />
 

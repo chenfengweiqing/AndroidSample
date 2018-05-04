@@ -7,6 +7,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
     <style name="MultiWindowSampleTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
@@ -20,5 +21,15 @@
 
     <style name="TextWarning" parent="TextAppearance.AppCompat.Medium">
 
+    </style>
+
+    <style name="Widget.SampleOutput">
+        <item name="android:padding">@dimen/margin_medium</item>
+        <item name="android:textAppearance">?android:textAppearanceMedium</item>
+        <item name="android:lineSpacingMultiplier">1.1</item>
+    </style>
+
+    <style name="Log" parent="Widget.SampleOutput">
+        <item name="android:typeface">monospace</item>
     </style>
 </resources>
