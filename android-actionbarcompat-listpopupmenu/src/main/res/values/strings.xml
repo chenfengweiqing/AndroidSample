@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   Copyright 2013 The Android Open Source Project
 
   Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,5 +17,27 @@
 
     <string name="menu_remove">Remove</string>
     <string name="content_open_popup">Open Popup Menu</string>
-
+    <string name="title_activity_main">MainActivity</string>
+    <string name="hello_new_document_counter">Hello Document %s!</string>
+    <string name="reusing_document_counter">Reusing Document %s!</string>
+    <string name="activity_new_document_title">DocumentActivity</string>
+    <string name="new_document_button_text">Create new document</string>
+    <string name="multiple_task_checkbox_label">Task per document</string>
+    <string name="remove_task_button_text">Remove from Overview</string>
+    <string name="request">request</string>
+    <string name="invalid_family_name">Not a valid Family Name</string>
+    <string name="invalid_input">Invalid inputs exist</string>
+    <string name="family_name">Family Name</string>
+    <string name="weight">Weight</string>
+    <string name="width">Width</string>
+    <string name="italic">Italic</string>
+    <string name="best_effort">Best Effort (Nearest match)</string>
+    <string name="predefined_font">The pre-downloaded font is used for this part to avoid the overhead of the time until the requested font is downloaded. See "src/main/res/font" directory for usage.</string>
+    <string name="downloadable_font_applied_text">Typeface of this part is going to be changed when a new font is downloaded. To request a new font, fill the \"Family Name\" (and optionally change other attributes such as width, weight, italic), then tap the \"Request\" button</string>
+    <string name="request_failed">Font request failed with reason code: %1$d</string>
+    <string name="emoji_text_view">Emoji TextView %s</string>
+    <string name="emoji_edit_text">Emoji EditText %s</string>
+    <string name="emoji_button">Emoji Button %s</string>
+    <string name="regular_text_view">Regular TextView %s</string>
+    <string name="custom_text_view">Custom TextView %s</string>
 </resources>

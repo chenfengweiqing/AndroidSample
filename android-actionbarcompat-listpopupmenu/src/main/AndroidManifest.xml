@@ -16,6 +16,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".documentcentricapps.DocumentCentricActivity"
+            android:label="@string/app_name"
+            android:persistableMode="persistAcrossReboots">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".documentcentricapps.NewDocumentActivity"
+            android:label="@string/activity_new_document_title"></activity>
+
+        <activity android:name=".downloadablefonts.MainActivity" />
+        <activity android:name=".emojicompat.MainActivity" />
     </application>
 
 </manifest>
