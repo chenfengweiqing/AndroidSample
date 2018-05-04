@@ -224,6 +224,7 @@ public class AccelerometerPlayActivity extends Activity {
                 }
             }
 
+
             /*
              * Update the position of each particle in the system using the
              * Verlet integrator.
