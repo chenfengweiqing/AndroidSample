@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
+<?xml version="1.0" encoding="UTF-8"?><!--
  Copyright 2013 The Android Open Source Project
 
  Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,20 +16,4 @@
 
 <resources>
     <string name="app_name">ActiveNotifications</string>
-    <string name="intro_message">
-        <![CDATA[
-        
-            
-Notifications can now be grouped in Android N. Since Android M, the
-NotificationManager can tell you how many notifications your application
-is currently showing. This sample demonstrates how to use these APIs
-together for a nicer user experience when an app may have multiple
-notifications. To get started, press the "add a notification" button.
-If you add more than one notification a notification summary will be
-added. When a notification is being canceled, the count gets updated
-via a PendingIntent.
-            
-        
-        ]]>
-    </string>
 </resources>

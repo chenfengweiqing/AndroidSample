@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   Copyright 2013 The Android Open Source Project
 
   Licensed under the Apache License, Version 2.0 (the "License");
@@ -22,5 +21,75 @@
     <string name="main_description">This is a basic Activity showing an Action Bar which has been
         styled.
     </string>
+    <string name="start_geofence_service">Starting geofence transition service</string>
+    <string name="entering_geofence">Entering the GeoFence zone</string>
+    <string name="exiting_geofence">Exiting the GeoFence zone</string>
+    <string name="welcome_title">GridViewPager</string>
+    <string name="welcome_text">Sample App</string>
+
+    <string name="about_title">About</string>
+    <string name="about_text">Content is organized into multiple pages. Swipe between cards to view other content.</string>
+
+    <string name="cards_title">Cards</string>
+    <string name="cards_text">Each page is created using a CardFragment. A layout is placed inside the card and the rest is handled automatically.</string>
+
+    <string name="expansion_title">Expansion</string>
+    <string name="expansion_text">By default, each card will grow taller to accommodate extra content. Tall cards can be scrolled through like any scrollable view. The maximum height is controlled by setExpansionFactor() with a default of 10 pages. After that you\'ll notice a faded edge to indicate there is more. Expansion can be disabled completely using setExpansionEnabled(false). With this, the content will be clipped if it\'s taller than one page.</string>
+
+    <string name="backgrounds_title">Backgrounds</string>
+    <string name="backgrounds_text">Backgrounds are supplied by the adapter\'s getBackground method. Parallax and crossfade effects are applied automatically.</string>
+
+    <string name="columns_title">Columns</string>
+    <string name="columns_text">When moving between rows, the pager always returns to column 0. This is adjustable in the adapter. See method getCurrentColumnForRow().</string>
+
+    <string name="dismiss_title">Dismiss</string>
+    <string name="dismiss_text">To exit the application, swipe from left to right.</string>
+    <string name="custom_fragment_text">"GridViewPager will accept any fragment. This is an example of a custom fragment with it's own background."</string>
+
+    <string name="help_button">Help</string>
+
+    <string-array name="mode_label_array">
+        <!-- must be in same order as ViewfinderProcessor.MODE_ ints -->
+        <item>Mode: Normal</item>
+        <item>Mode: Split</item>
+        <item>Mode: HDR</item>
+    </string-array>
+
+    <string name="auto_exposure_label">Auto exp. time:</string>
+    <string name="even_exposure_label">Even exp. time:</string>
+    <string name="odd_exposure_label">Odd exp. time:</string>
+
+    <string name="help_text">
+      <b>HDR Viewfinder Demo:</b>\n\n
+
+      Tap viewfinder to switch modes.\n\n
+
+      <b>Normal:</b> Standard camera preview\n
+      <b>Split:</b> Manual exposure control\n
+      <b>HDR:</b> Fused HDR viewfinder\n\n
+
+      Swipe up/down in Split/HDR modes to change manual exposure
+      values.\n\n
+
+      The left half of the viewfinder controls exposure time for
+      even-numbered frames, and the right half of the viewfinder
+      controls exposure time for odd-numbered frames
+    </string>
+
+    <string name="info">Info</string>
+
+    <string name="camera_permission_rationale">This sample app requires camera access in order to
+        demo the API.</string>
+    <string name="camera_no_good">No back-facing sufficiently capable camera available!</string>
+    <string name="camera_disabled">Camera is disabled by device policy</string>
+    <string name="camera_disconnected">Camera was disconnected before it was opened</string>
+    <string name="camera_error">Camera service reported an error</string>
+    <string name="camera_unknown">Unknown camera error: %s</string>
+    <string name="camera_permission_denied_explanation">You\'ve denied a permission that the app
+        needs for core functionality. If you selected &quot;don\'t ask again&quot; in the past then
+        you need to use Settings to re-enable the permission.</string>
+
+    <string name="ok">OK</string>
+    <string name="settings">Settings</string>
 
 </resources>

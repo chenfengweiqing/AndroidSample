@@ -27,4 +27,92 @@
 
     <string name="clip_button">Enabled outline clipping</string>
     <string name="unclip_button">Disable outline clipping</string>
+    <string name="intro_message">
+        <![CDATA[
+
+
+            This sample shows the two sizes of Floating Action Buttons and how to interact with
+            them.
+
+
+        ]]>
+    </string>
+    <string name="sample_show_log">Show Log</string>
+    <string name="sample_hide_log">Hide Log</string>
+    <string name="animation_duration">Duration: %1$d ms</string>
+    <string name="interpolator">Interpolator:</string>
+    <string name="animate">Animate!</string>
+    <string-array name="interpolator_names">
+        <item>Linear</item>
+        <item>Fast Out Linear In</item>
+        <item>Fast Out Slow In</item>
+        <item>Linear Out Slow In</item>
+    </string-array>
+    <string name="onstoptask">onStopTask</string>
+    <string name="onstarttask">onStartTask</string>
+    <string name="defaultparamtext">task params will show up here.</string>
+    <string name="schedule_job_button_text">Schedule Job</string>
+    <string name="cancel_all_jobs_button_text">Cancel all</string>
+    <string name="finish_job_button_text">Finish last task</string>
+    <string name="idle_mode_text">Requires device in idle mode.</string>
+    <string name="charging_caption">Charging:</string>
+    <string name="charging_text">Requires device plugged in.</string>
+    <string name="idle_caption">Idle:</string>
+    <string name="connectivity">Connectivity:</string>
+    <string name="any">Any</string>
+    <string name="unmetered">WiFi</string>
+    <string name="timing">Timing:</string>
+    <string name="delay">Delay:</string>
+    <string name="deadline">Deadline:</string>
+    <string name="work_duration">Work duration:</string>
+    <string name="cancelled_job">Cancelled job %d</string>
+    <string name="no_jobs_to_cancel">No jobs to cancel</string>
+    <string name="all_jobs_cancelled">All jobs cancelled</string>
+    <string name="introduction_title">Multiwindow Playground</string>
+    <string name="sample_introduction">This sample demonstrates the use of the multi-window API
+        available in Android N.\nFirst, switch this app into
+        <b>split-screen mode</b>
+        (for example by long-pressing the recents button). Each button below starts a new activity
+        with special flags.\n<b>See the files MainActivity.java and AndroidManifest.xml for
+        implementation details.</b>
+    </string>
+    <string name="sample_freeform_introduction">The buttons below demonstrate features only
+        available in <b>free-form multi-window mode</b>.</string>
+    <string name="start_default">Start basic, default Activity</string>
+    <string name="start_unresizable">Start unresizable Activity</string>
+    <string name="start_adjacent">Start Activity adjacent</string>
+    <string name="start_minimum">Start Activity with minimum size</string>
+    <string name="start_bounds">Start Activity with launch bounds</string>
+    <string name="start_custom_activity">Start activity that handles configuration changes.</string>
+
+    <string name="activity_description_basic">This Activity was launched in a new task without any
+        additional flags or options.
+    </string>
+    <string name="activity_description_unresizable">This activity is set as unresizable in the
+        AndroidManifest. This is done by setting the <i>resizeableActivity</i> property to
+        <i>false</i> for this activity.
+    </string>
+    <string name="activity_adjacent_description">This activity was launched with the flag
+        <b>Intent.FLAG_ACTIVITY_LAUNCH_ADJACENT</b>.\n\nIf possible, it has been launched into the
+        adjacent area from the activity that started it.\nThis is only a hint to the system. For
+        example - if the application is not in split-screen mode, it will be launched full-screen.
+        If it is launched in the same task as the initial Activity, it will retain its activity
+        properties and its location.
+    </string>
+    <string name="activity_custom_description">This activity handles configuration changes
+        itself.\n\nIn the AndroidManifest, this activity has been configured to receive callbacks
+        for <b>screenSize|smallestScreenSize|screenLayout|orientation</b>
+        changes.\nTry resizing this activity to different sizes to see which configuration
+        properties change.
+    </string>
+    <string name="activity_bounds_description">This activity has been launched with a launch bounds
+        set in its intent. The bounds define the area into which the activity should be launched.
+        \n\nNote that this flag only applies in free-form mode.
+    </string>
+    <string name="activity_minimum_description">This activity has a minimum size.\nIt was launched
+        into the top/end corner with a a default size of 750dp by 500dp, with a minimum size of 750dp
+        as defined in its <b>layout attribute in the AndroidManifest definition</b>.
+        \n\nNote that this Activity was launched in a different task, otherwise the properties from
+        the Activity that launched this one would have been applied.
+    </string>
 </resources>
