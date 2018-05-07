@@ -16,8 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".datalayer.MainActivity" />
-        <activity android:name=".directboot.MainActivity" />
+        <activity android:name=".datalayer.DatalayerActivity" />
+        <activity android:name=".directboot.DirectBootActivity" />
 
         <receiver
             android:name=".directboot.BootBroadcastReceiver"

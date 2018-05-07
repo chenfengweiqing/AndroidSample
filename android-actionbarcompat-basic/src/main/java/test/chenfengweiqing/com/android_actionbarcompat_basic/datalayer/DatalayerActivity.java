@@ -72,12 +72,12 @@ import test.chenfengweiqing.com.android_actionbarcompat_basic.R;
  * item every second while it is open. Also allows user to take a photo and send that as an asset
  * to the paired wearable.
  */
-public class MainActivity extends Activity implements
+public class DatalayerActivity extends Activity implements
         DataClient.OnDataChangedListener,
         MessageClient.OnMessageReceivedListener,
         CapabilityClient.OnCapabilityChangedListener {
 
-    private static final String TAG = "MainActivity";
+    private static final String TAG = "DatalayerActivity";
 
     private static final int REQUEST_IMAGE_CAPTURE = 1;
 

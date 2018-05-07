@@ -39,7 +39,7 @@ import java.util.Arrays;
 
 import test.chenfengweiqing.android.sample.R;
 
-public class MainActivity extends Activity {
+public class CommitContentActivity extends Activity {
     private static final String INPUT_CONTENT_INFO_KEY = "COMMIT_CONTENT_INPUT_CONTENT_INFO";
     private static final String COMMIT_CONTENT_FLAGS_KEY = "COMMIT_CONTENT_FLAGS";
 
@@ -214,7 +214,7 @@ public class MainActivity extends Activity {
                             @Override
                             public boolean onCommitContent(InputContentInfoCompat inputContentInfo,
                                     int flags, Bundle opts) {
-                                return MainActivity.this.onCommitContent(
+                                return CommitContentActivity.this.onCommitContent(
                                         inputContentInfo, flags, opts, mimeTypes);
                             }
                         };

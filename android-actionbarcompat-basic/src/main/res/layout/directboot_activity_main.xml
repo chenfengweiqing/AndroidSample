@@ -19,5 +19,5 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="test.chenfengweiqing.com.android_actionbarcompat_basic.directboot.MainActivity"
+    tools:context="test.chenfengweiqing.com.android_actionbarcompat_basic.directboot.DirectBootActivity"
     tools:ignore="MergeRootFrame" />

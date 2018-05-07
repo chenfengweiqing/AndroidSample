@@ -17,6 +17,7 @@
 package test.chenfengweiqing.android.sample.cardview;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.util.Log;
@@ -26,6 +27,7 @@ import android.view.ViewGroup;
 import android.widget.SeekBar;
 
 import test.chenfengweiqing.android.sample.R;
+import test.chenfengweiqing.android.sample.commitcontent.CommitContentActivity;
 
 /**
  * Fragment that demonstrates how to use CardView.
@@ -34,7 +36,9 @@ public class CardViewFragment extends Fragment {
 
     private static final String TAG = CardViewFragment.class.getSimpleName();
 
-    /** The CardView widget. */
+    /**
+     * The CardView widget.
+     */
     //@VisibleForTesting
     CardView mCardView;
 
@@ -82,6 +86,12 @@ public class CardViewFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mCardView = (CardView) view.findViewById(R.id.cardview);
+        mCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().startActivity(new Intent(getActivity(), CommitContentActivity.class));
+            }
+        });
         mRadiusSeekBar = (SeekBar) view.findViewById(R.id.cardview_radius_seekbar);
         mRadiusSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -89,6 +99,7 @@ public class CardViewFragment extends Fragment {
                 Log.d(TAG, String.format("SeekBar Radius progress : %d", progress));
                 mCardView.setRadius(progress);
             }
+
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
                 //Do nothing
@@ -107,6 +118,7 @@ public class CardViewFragment extends Fragment {
                 Log.d(TAG, String.format("SeekBar Elevation progress : %d", progress));
                 mCardView.setElevation(progress);
             }
+
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
                 //Do nothing

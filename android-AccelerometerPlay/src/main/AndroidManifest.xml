@@ -10,17 +10,17 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name">
         <activity
-            android:name=".AccelerometerPlayActivity"
+            android:name=".cardview.CardViewActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            android:theme="@android:style/Theme.NoTitleBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".cardview.CardViewActivity" />
-        <activity android:name=".commitcontent.MainActivity" />
+        <activity android:name=".AccelerometerPlayActivity" />
+        <activity android:name=".commitcontent.CommitContentActivity" />
 
         <service
             android:name=".commitcontent.ime.ImageKeyboard"
@@ -28,7 +28,9 @@
             <intent-filter>
                 <action android:name="android.view.InputMethod" />
             </intent-filter>
-            <meta-data android:name="android.view.im" android:resource="@xml/method" />
+            <meta-data
+                android:name="android.view.im"
+                android:resource="@xml/method" />
         </service>
 
         <provider

@@ -24,7 +24,7 @@ import test.chenfengweiqing.com.android_actionbarcompat_basic.R;
 /**
  * Launcher Activity for the Direct Boot sample app.
  */
-public class MainActivity extends AppCompatActivity {
+public class DirectBootActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
