@@ -2,6 +2,8 @@ package test.chenfengweiqing.com.companyinfo.utils;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import android.support.annotation.NonNull;
@@ -45,4 +47,24 @@ public class CompanyInfoUtils {
             context.getContentResolver().insert(table, values);
         }
     }
+
+    /**
+     * @param isLoad the json string 0f weather info.
+     * @return WeatherPrefer.
+     */
+    public static void putLoadInfo(@NonNull Context context, boolean isLoad) {
+        context.getSharedPreferences(Constants.PREFER_NAME, Context.MODE_PRIVATE).edit()
+                .putBoolean(Constants.COMPANY_IS_LOAD, isLoad).apply();
+        Intent updateInfo = new Intent(Constants.UPDATE_SHOW_VIEW);
+        context.sendBroadcast(updateInfo);
+    }
+
+    /**
+     * @return the json string of weather info.
+     */
+    public static boolean isLoaded(@NonNull Context context) {
+        return context.getSharedPreferences(Constants.PREFER_NAME, Context.MODE_PRIVATE)
+                .getBoolean(Constants.COMPANY_IS_LOAD, false);
+    }
+
 }

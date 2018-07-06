@@ -21,6 +21,11 @@
             android:authorities="test.chenfengweiqing.companyinfo"
             android:enabled="true"
             android:exported="true" />
+        <service android:name=".LoadDataService">
+            <intent-filter>
+                <action android:name="test.chenfengweiqing.com.companyinfo.LOAD_SERVICE" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

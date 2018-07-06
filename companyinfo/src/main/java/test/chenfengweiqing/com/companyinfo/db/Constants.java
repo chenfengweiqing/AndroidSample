@@ -7,6 +7,12 @@ import android.net.Uri;
  */
 
 public class Constants {
+
+    public static String PREFER_NAME = "LoadInfo";
+
+    public static String COMPANY_IS_LOAD = "is_load";
+    public static String UPDATE_SHOW_VIEW = "update_show_view";
+
     public @interface TABLE {
         //乌鲁木齐
         String WU_LU_MU_QI = "wu_lu_mu_qi";
