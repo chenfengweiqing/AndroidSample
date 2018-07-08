@@ -40,33 +40,66 @@
         android:id="@+id/phone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/button_bg"
-        android:layout_marginRight="@dimen/phone_margin"
+        android:layout_alignParentRight="true"
         android:layout_marginBottom="@dimen/phone_margin_bt"
+        android:layout_marginRight="@dimen/phone_margin"
+        android:background="@drawable/button_bg"
         android:gravity="center"
         android:textColor="@color/colorPrimary"
         android:textSize="@dimen/phone_size" />
 
-    <CheckBox
+    <LinearLayout
         android:id="@+id/is_called"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/info"
-        android:text="打过" />
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
 
-    <CheckBox
+        <ImageButton
+            android:id="@+id/is_called_bt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="centerInside"
+            android:src="@drawable/favorite" />
+
+        <TextView
+            android:id="@+id/called_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="打过" />
+    </LinearLayout>
+
+
+    <LinearLayout
         android:id="@+id/is_hope"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/info"
+        android:layout_marginLeft="20dp"
         android:layout_toRightOf="@+id/is_called"
-        android:text="有希望" />
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/is_hope_bt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="centerInside"
+            android:src="@drawable/favorite" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="有希望" />
+    </LinearLayout>
+
+
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:layout_alignParentBottom="true"
-        android:background="@color/black"/>
+        android:background="@color/black" />
 </RelativeLayout>

@@ -4,17 +4,19 @@ import android.content.Context;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.util.List;
 
 import test.chenfengweiqing.com.companyinfo.R;
-import test.chenfengweiqing.com.companyinfo.ShowCityCompanyActivity;
+
+import static test.chenfengweiqing.com.companyinfo.db.Constants.IS_DEBUG;
 
 public class CompanyAdapter extends RecyclerView.Adapter<CompanyAdapter.ViewHolder> {
 
@@ -35,6 +37,29 @@ public class CompanyAdapter extends RecyclerView.Adapter<CompanyAdapter.ViewHold
         this.context = context;
     }
 
+    public void updatInfo(CompanyInfo info) {
+        if (IS_DEBUG) {
+            Log.d("liao ", "updatInfo: info " + info);
+        }
+        if (info != null && !TextUtils.isEmpty(info.getName()) && infos != null && infos.size() > 0) {
+            int index = -1;
+            for (int i = 0; i < infos.size(); i++) {
+                if (info.getName().equals(infos.get(i).getName())) {
+                    index = i;
+                    break;
+                }
+            }
+            if (IS_DEBUG) {
+                Log.d("liao ", "updatInfo: index " + index);
+            }
+            if (index != -1) {
+                infos.remove(index);
+                infos.add(index, info);
+                notifyItemChanged(index);
+            }
+        }
+    }
+
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return new ViewHolder(LayoutInflater.from(context).inflate(layout, parent, false));
@@ -43,12 +68,23 @@ public class CompanyAdapter extends RecyclerView.Adapter<CompanyAdapter.ViewHold
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         final CompanyInfo info = infos.get(position);
+        if (IS_DEBUG) {
+            Log.d("liao ", "onBindViewHolder: " + info.getName() + " is called " + info.isCalled() + " isHope " + info.isHope());
+        }
         holder.name.setText(info.getName());
         holder.legalName.setText(info.getLegalPerson());
         holder.phone.setText(info.getPhone());
         holder.info.setText(info.getInfo());
-        holder.isCall.setChecked(info.isCalled());
-        holder.isHope.setChecked(info.isHope());
+        if (info.isCalled()) {
+            holder.isCall.setImageDrawable(context.getResources().getDrawable(R.drawable.favorite));
+        } else {
+            holder.isCall.setImageDrawable(context.getResources().getDrawable(R.drawable.not_favorite));
+        }
+        if (info.isHope()) {
+            holder.isHope.setImageDrawable(context.getResources().getDrawable(R.drawable.favorite));
+        } else {
+            holder.isHope.setImageDrawable(context.getResources().getDrawable(R.drawable.not_favorite));
+        }
         if (mOnItemClickListener != null) {
             holder.phone.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -56,16 +92,16 @@ public class CompanyAdapter extends RecyclerView.Adapter<CompanyAdapter.ViewHold
                     mOnItemClickListener.onDialerClick(info);
                 }
             });
-            holder.isCall.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            holder.isHope.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    mOnItemClickListener.onCallClick(info, isChecked);
+                public void onClick(View v) {
+                    mOnItemClickListener.onHopeClick(info, !info.isHope());
                 }
             });
-            holder.isHope.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            holder.isCall.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    mOnItemClickListener.onHopeClick(info, isChecked);
+                public void onClick(View v) {
+                    mOnItemClickListener.onCallClick(info, !info.isCalled());
                 }
             });
         }
@@ -86,8 +122,8 @@ public class CompanyAdapter extends RecyclerView.Adapter<CompanyAdapter.ViewHold
         TextView legalName;
         TextView phone;
         TextView info;
-        CheckBox isCall;
-        CheckBox isHope;
+        ImageButton isCall;
+        ImageButton isHope;
 
         ViewHolder(View view) {
             super(view);
@@ -95,8 +131,8 @@ public class CompanyAdapter extends RecyclerView.Adapter<CompanyAdapter.ViewHold
             legalName = view.findViewById(R.id.leagal_person);
             phone = view.findViewById(R.id.phone);
             info = view.findViewById(R.id.info);
-            isCall = view.findViewById(R.id.is_called);
-            isHope = view.findViewById(R.id.is_hope);
+            isCall = view.findViewById(R.id.is_called_bt);
+            isHope = view.findViewById(R.id.is_hope_bt);
         }
     }
 

@@ -23,6 +23,7 @@ import test.chenfengweiqing.com.companyinfo.adapter.CompanyAdapter;
 import test.chenfengweiqing.com.companyinfo.adapter.CompanyInfo;
 import test.chenfengweiqing.com.companyinfo.db.Constants;
 import test.chenfengweiqing.com.companyinfo.utils.CompanyInfoUtils;
+import test.chenfengweiqing.com.companyinfo.view.MyToast;
 
 import static test.chenfengweiqing.com.companyinfo.db.Constants.IS_DEBUG;
 import static test.chenfengweiqing.com.companyinfo.db.Constants.OFF_SET;
@@ -31,7 +32,8 @@ import static test.chenfengweiqing.com.companyinfo.db.Constants.OFF_SET;
  * Created by lcz on 18-7-6.
  */
 
-public class ShowCityCompanyActivity extends AppCompatActivity implements CompanyAdapter.OnItemClickListener, View.OnClickListener {
+public class ShowCityCompanyActivity extends AppCompatActivity implements CompanyAdapter.OnItemClickListener,
+        View.OnClickListener, View.OnLongClickListener {
     private RecyclerView mCompanyInfo;
     private TextView mCurrentCity;
     private TextView mPre;
@@ -88,7 +90,7 @@ public class ShowCityCompanyActivity extends AppCompatActivity implements Compan
         mCurrentIndex = CompanyInfoUtils.getCurrentIndex(this, mCurrentKey);
         mCurrentCity.setText(sb.toString());
         mPre.setOnClickListener(this);
-        mCurrentCity.setOnClickListener(this);
+        mCurrentCity.setOnLongClickListener(this);
         mNext.setOnClickListener(this);
         mCompanyInfo = findViewById(R.id.company_info);
         mCompanyAdapter = new CompanyAdapter(this, mCurDatas, R.layout.company_info_item);
@@ -400,7 +402,6 @@ public class ShowCityCompanyActivity extends AppCompatActivity implements Compan
         } else {
             values.put(Constants.Columns.IS_HOPE, 0);
         }
-
         if (isCalled) {
             values.put(Constants.Columns.IS_CALLED, 1);
         } else {
@@ -411,9 +412,11 @@ public class ShowCityCompanyActivity extends AppCompatActivity implements Compan
         sb.append("=");
         sb.append("\'" + companyInfo.getName() + "\'");
         if (IS_DEBUG) {
-            Log.d("liao", "handleClickFavoriteItem update history name " + companyInfo.getName() + "  , isHope " + isCalled);
+            Log.d("liao", "onCallClick update companyInfo name " + companyInfo.getName() + "   isCalled " + isCalled);
         }
         CompanyInfoUtils.updateCompanyInfo(getApplicationContext(), companyInfo.getUri(), values, sb.toString(), null);
+        companyInfo.setCalled(isCalled);
+        mCompanyAdapter.updatInfo(companyInfo);
     }
 
     @Override
@@ -429,7 +432,6 @@ public class ShowCityCompanyActivity extends AppCompatActivity implements Compan
             } else {
                 values.put(Constants.Columns.IS_HOPE, 0);
             }
-
             if (companyInfo.isCalled()) {
                 values.put(Constants.Columns.IS_CALLED, 1);
             } else {
@@ -440,9 +442,11 @@ public class ShowCityCompanyActivity extends AppCompatActivity implements Compan
             sb.append("=");
             sb.append("\'" + companyInfo.getName() + "\'");
             if (IS_DEBUG) {
-                Log.d("liao", "handleClickFavoriteItem update history name " + companyInfo.getName() + "  , isHope " + isHope);
+                Log.d("liao", "onHopeClick update companyInfo name " + companyInfo.getName() + "   isHope " + isHope);
             }
             CompanyInfoUtils.updateCompanyInfo(getApplicationContext(), companyInfo.getUri(), values, sb.toString(), null);
+            companyInfo.setHope(isHope);
+            mCompanyAdapter.updatInfo(companyInfo);
         }
     }
 
@@ -458,8 +462,6 @@ public class ShowCityCompanyActivity extends AppCompatActivity implements Compan
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.current_city:
-                break;
             case R.id.pre:
                 if (IS_DEBUG) {
                     Log.d("liao", "onClick pre mCurrentIndex " + mCurrentIndex + " mPreDatas " + mPreDatas.size());
@@ -477,7 +479,7 @@ public class ShowCityCompanyActivity extends AppCompatActivity implements Compan
                     }
                     initPreload(preIndex, nextIndex);
                 } else {
-                    Toast.makeText(this, "已经是第一页", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "已经是第一页", Toast.LENGTH_SHORT).show();
                 }
                 break;
             case R.id.next:
@@ -494,11 +496,76 @@ public class ShowCityCompanyActivity extends AppCompatActivity implements Compan
                     int nextIndex = mCurrentIndex + OFF_SET;
                     initPreload(preIndex, nextIndex);
                 } else {
-                    Toast.makeText(this, "已经是最后一页", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "已经是最后一页", Toast.LENGTH_SHORT).show();
                 }
                 break;
             default:
                 break;
         }
+    }
+
+    @Override
+    public boolean onLongClick(View v) {
+        boolean isShowToast = CompanyInfoUtils.isShowToast(this);
+        if (IS_DEBUG) {
+            Log.d("liao", "onLongClick isShowToast  " + isShowToast);
+        }
+        if (R.id.current_city == v.getId() && isShowToast) {
+            switch (mType) {
+                case Constants.CompanyType.WU_LU_MU_QI:
+                    MyToast.showCommingToastInCenter(this, "aa");
+                    break;
+                case Constants.CompanyType.LE_SHAN:
+                    MyToast.showCommingToastInCenter(this, "aa");
+                    break;
+                case Constants.CompanyType.KE_LA_MA_YI:
+                    MyToast.showCommingToastInCenter(this, "aa");
+                    break;
+                case Constants.CompanyType.LAN_ZHOU:
+                    MyToast.showCommingToastInCenter(this, "aa");
+                    break;
+                case Constants.CompanyType.BEI_JING:
+                    MyToast.showCommingToastInCenter(this, "aa");
+                    break;
+                case Constants.CompanyType.NAN_CONG:
+                    MyToast.showCommingToastInCenter(this, "aa");
+                    break;
+                case Constants.CompanyType.TU_LU_FAN:
+                    MyToast.showCommingToastInCenter(this, "aa");
+                    break;
+                case Constants.CompanyType.HA_MI:
+                    MyToast.showCommingToastInCenter(this, "aa");
+                    break;
+                case Constants.CompanyType.KA_SHI:
+                    MyToast.showCommingToastInCenter(this, "aa");
+                    break;
+                case Constants.CompanyType.YI_BIN:
+                    MyToast.showCommingToastInCenter(this, "aa");
+                    break;
+                case Constants.CompanyType.GUANG_YUAN:
+                    MyToast.showCommingToastInCenter(this, "aa");
+                    break;
+                case Constants.CompanyType.DE_YANG:
+                    MyToast.showCommingToastInCenter(this, "aa");
+                    break;
+                case Constants.CompanyType.CHANG_JI:
+                    MyToast.showCommingToastInCenter(this, "aa");
+                    break;
+                case Constants.CompanyType.LU_ZHOU:
+                    MyToast.showCommingToastInCenter(this, "aa");
+                    break;
+                case Constants.CompanyType.SHI_HE_ZI:
+                    MyToast.showCommingToastInCenter(this, "aa");
+                    break;
+                case Constants.CompanyType.MIAN_YANG:
+                    MyToast.showCommingToastInCenter(this, "aa");
+                    break;
+                case Constants.CompanyType.XI_AN:
+                    MyToast.showCommingToastInCenter(this, "aa");
+                    break;
+                default:
+            }
+        }
+        return false;
     }
 }

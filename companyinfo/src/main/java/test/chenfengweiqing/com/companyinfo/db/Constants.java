@@ -10,6 +10,7 @@ public class Constants {
 
     public static String PREFER_NAME = "LoadInfo";
     public static String COMPANY_IS_LOAD = "is_load";
+    public static String IS_SHOW_TOAST = "is_show_toast";
     public static String UPDATE_SHOW_VIEW = "update_show_view";
     public static String OPEN_CITY_KEY = "open_city_key";
     public static String OPEN_CITY_NAME_KEY = "open_city_name_key";

@@ -110,4 +110,20 @@ public class CompanyInfoUtils {
                 .getInt(key, 0);
     }
 
+    /**
+     * @param isLoad the.
+     * @return .
+     */
+    public static void putIsShowToast(@NonNull Context context, boolean isLoad) {
+        context.getSharedPreferences(Constants.PREFER_NAME, Context.MODE_PRIVATE).edit()
+                .putBoolean(Constants.IS_SHOW_TOAST, isLoad).apply();
+    }
+
+    /**
+     * @return the isLoaded;
+     */
+    public static boolean isShowToast(@NonNull Context context) {
+        return context.getSharedPreferences(Constants.PREFER_NAME, Context.MODE_PRIVATE)
+                .getBoolean(Constants.IS_SHOW_TOAST, true);
+    }
 }
