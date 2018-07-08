@@ -9,9 +9,25 @@ import android.net.Uri;
 public class Constants {
 
     public static String PREFER_NAME = "LoadInfo";
-
     public static String COMPANY_IS_LOAD = "is_load";
     public static String UPDATE_SHOW_VIEW = "update_show_view";
+    public static String OPEN_CITY_KEY = "open_city_key";
+    public static String OPEN_CITY_NAME_KEY = "open_city_name_key";
+    public static String QUERY_TYPE_KEY = "query_type_key";
+    public static int OFF_SET = 30;
+    public static final boolean IS_DEBUG = true;
+
+    public @interface QueryType {
+        int ALL = 0;
+        int UN_CALL = 1;
+        int HOPE = 2;
+    }
+
+    public @interface LoadType {
+        int PRE = 1;
+        int CURRENT = 0;
+        int NEXT = 2;
+    }
 
     public @interface TABLE {
         //乌鲁木齐

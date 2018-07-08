@@ -13,6 +13,8 @@ import android.util.Log;
 
 import test.chenfengweiqing.com.companyinfo.db.Constants;
 
+import static test.chenfengweiqing.com.companyinfo.db.Constants.IS_DEBUG;
+
 /**
  * Created by lcz on 17-8-28.
  */
@@ -21,23 +23,48 @@ public class CompanyInfoUtils {
     private static final String TAG = "CompanyInfoUtils";
 
     public static Cursor queryCompany(@NonNull Context context, @NonNull Uri table, @Nullable String[] projection,
-                                      @Nullable String selection, @Nullable String[] selectionArgs, @Nullable String sortOrder) {
+                                      @Nullable String selection, @Nullable String[] selectionArgs, @Nullable String sortOrder
+            , int queryType, int start) {
         Cursor cursor = null;
         try {
-            cursor = context.getContentResolver().query(table, projection, selection, selectionArgs, sortOrder);
+            switch (queryType){
+                case Constants.QueryType.ALL:
+                    cursor = context.getContentResolver().query(table, projection, selection, selectionArgs, sortOrder);
+                    break;
+                case Constants.QueryType.HOPE:
+                    StringBuffer where = new StringBuffer();
+                    where.append(Constants.Columns.IS_HOPE);
+                    where.append("=");
+                    where.append("\'" + 1 + "\'");
+                    cursor = context.getContentResolver().query(table, projection,where.toString() , selectionArgs, sortOrder);
+                    break;
+                case Constants.QueryType.UN_CALL:
+                    StringBuffer sb = new StringBuffer();
+                    sb.append(Constants.Columns.IS_CALLED);
+                    sb.append("=");
+                    sb.append("\'" + 0 + "\'");
+                    cursor = context.getContentResolver().query(table, projection, sb.toString(), selectionArgs, sortOrder);
+                    break;
+            }
         } catch (Exception e) {
-            Log.d(TAG, "queryNaviHistory error   " + e.toString());
+            if(IS_DEBUG){
+                Log.d(TAG, "queryNaviHistory error   " + e.toString());
+            }
         }
         return cursor;
     }
 
     public static void deleteCompany(@NonNull Context context, @NonNull Uri table, String where, String[] selectionArgs) {
-        Log.d(TAG, "deleteCompany table " + table);
+        if(IS_DEBUG){
+            Log.d(TAG, "deleteCompany table " + table);
+        }
         context.getContentResolver().delete(table, where, selectionArgs);
     }
 
     public static void updateCompanyInfo(@NonNull Context context, @NonNull Uri table, ContentValues values, String where, String[] selectionArgs) {
-        Log.d(TAG, "updateCompanyInfo table " + table);
+        if(IS_DEBUG){
+            Log.d(TAG, "updateCompanyInfo table " + table);
+        }
         context.getContentResolver().update(table, values, where, selectionArgs);
     }
 
@@ -49,7 +76,7 @@ public class CompanyInfoUtils {
     }
 
     /**
-     * @param isLoad the json string 0f weather info.
+     * @param isLoad the.
      * @return WeatherPrefer.
      */
     public static void putLoadInfo(@NonNull Context context, boolean isLoad) {
@@ -60,11 +87,27 @@ public class CompanyInfoUtils {
     }
 
     /**
-     * @return the json string of weather info.
+     * @return the isLoaded;
      */
     public static boolean isLoaded(@NonNull Context context) {
         return context.getSharedPreferences(Constants.PREFER_NAME, Context.MODE_PRIVATE)
                 .getBoolean(Constants.COMPANY_IS_LOAD, false);
+    }
+
+    /**
+     * @return WeatherPrefer.
+     */
+    public static void putCurrentIndex(@NonNull Context context, String key, int index) {
+        context.getSharedPreferences(Constants.PREFER_NAME, Context.MODE_PRIVATE).edit()
+                .putInt(key, index).apply();
+    }
+
+    /**
+     * @return the isLoaded;
+     */
+    public static int getCurrentIndex(@NonNull Context context, String key) {
+        return context.getSharedPreferences(Constants.PREFER_NAME, Context.MODE_PRIVATE)
+                .getInt(key, 0);
     }
 
 }

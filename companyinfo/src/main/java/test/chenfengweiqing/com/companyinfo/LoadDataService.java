@@ -30,6 +30,8 @@ import jxl.write.biff.RowsExceededException;
 import test.chenfengweiqing.com.companyinfo.db.Constants;
 import test.chenfengweiqing.com.companyinfo.utils.CompanyInfoUtils;
 
+import static test.chenfengweiqing.com.companyinfo.db.Constants.IS_DEBUG;
+
 /**
  * Created by lcz on 18-7-6.
  */
@@ -65,7 +67,7 @@ public class LoadDataService extends IntentService {
         insertDB("石河子.xls", Constants.CompanyInfoUri.SHI_HE_ZI);
         insertDB("绵阳.xls", Constants.CompanyInfoUri.MIAN_YANG);
         insertDB("西安.xls", Constants.CompanyInfoUri.XI_AN);
-        CompanyInfoUtils.putLoadInfo(mContext,true);
+        CompanyInfoUtils.putLoadInfo(mContext, true);
     }
 
     @Override
@@ -140,7 +142,8 @@ public class LoadDataService extends IntentService {
                         values.put(Constants.Columns.IS_CALLED, 0);
                         values.put(Constants.Columns.IS_HOPE, 0);
                         CompanyInfoUtils.insertCompanyInfo(mContext, table, values);
-                    } else {
+                    }
+                    if (IS_DEBUG) {
                         Log.d("liao ", " content  name " + name + " legalPerson " + legalPerson + " phone " + phone);
                     }
                 }
@@ -208,8 +211,10 @@ public class LoadDataService extends IntentService {
                         Label newInfo = new Label(3, row, info);
                         writeSheet.addCell(newInfo);
                         row++;
-                    } else {
+                    }
+                    if (IS_DEBUG) {
                         Log.d("liao ", " content  name " + name + " legalPerson " + legalPerson + " phone " + phone);
+
                     }
                 }
             }

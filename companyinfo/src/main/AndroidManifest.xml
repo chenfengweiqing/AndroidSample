@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="test.chenfengweiqing.com.companyinfo">
 
+    <uses-permission android:name="android.permission.CALL_PHONE" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -26,6 +27,8 @@
                 <action android:name="test.chenfengweiqing.com.companyinfo.LOAD_SERVICE" />
             </intent-filter>
         </service>
+
+        <activity android:name=".ShowCityCompanyActivity" />
     </application>
 
 </manifest>

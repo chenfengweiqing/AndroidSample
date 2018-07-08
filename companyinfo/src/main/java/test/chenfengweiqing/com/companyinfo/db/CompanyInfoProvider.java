@@ -11,6 +11,8 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
+import static test.chenfengweiqing.com.companyinfo.db.Constants.IS_DEBUG;
+
 /**
  * Created by lcz on 17-8-28.
  */
@@ -54,7 +56,9 @@ public class CompanyInfoProvider extends ContentProvider {
         SQLiteDatabase db = mOpenHelper.getReadableDatabase();
         int match = sUriMatcher.match(uri);
         Cursor cursor = null;
-        Log.d(TAG, "query match " + match);
+        if(IS_DEBUG){
+            Log.d(TAG, "query match " + match);
+        }
         switch (match) {
             case Constants.CompanyType.WU_LU_MU_QI:
                 qb.setTables(Constants.TABLE.WU_LU_MU_QI);
@@ -127,7 +131,9 @@ public class CompanyInfoProvider extends ContentProvider {
             default:
                 throw new UnsupportedOperationException("URI" + uri + "not support");
         }
-        Log.d(TAG, "query cursor " + cursor);
+        if(IS_DEBUG){
+            Log.d(TAG, "query cursor " + cursor);
+        }
         return cursor;
     }
 
@@ -142,7 +148,9 @@ public class CompanyInfoProvider extends ContentProvider {
     public android.net.Uri insert(@NonNull android.net.Uri uri, @Nullable ContentValues values) {
         int match = sUriMatcher.match(uri);
         SQLiteDatabase db = mOpenHelper.getWritableDatabase();
-        Log.d(TAG, "insert match " + match + "  , values " + values);
+        if(IS_DEBUG){
+            Log.d(TAG, "insert match " + match + "  , values " + values);
+        }
         long count;
         switch (match) {
             case Constants.CompanyType.WU_LU_MU_QI:
@@ -199,7 +207,9 @@ public class CompanyInfoProvider extends ContentProvider {
             default:
                 throw new UnsupportedOperationException("URI" + uri + "not support");
         }
-        Log.d(TAG, "insert uri " + uri + " count " + count);
+        if(IS_DEBUG){
+            Log.d(TAG, "insert uri " + uri + " count " + count);
+        }
         return uri;
     }
 
@@ -208,7 +218,9 @@ public class CompanyInfoProvider extends ContentProvider {
         int match = sUriMatcher.match(uri);
         SQLiteDatabase db = mOpenHelper.getWritableDatabase();
         int count;
-        Log.d(TAG, "delete match " + match + "   selection " + selection + " , selectionArgs  " + selectionArgs);
+        if(IS_DEBUG){
+            Log.d(TAG, "delete match " + match + "   selection " + selection + " , selectionArgs  " + selectionArgs);
+        }
         switch (match) {
             case Constants.CompanyType.WU_LU_MU_QI:
                 count = db.delete(Constants.TABLE.WU_LU_MU_QI, selection, selectionArgs);
@@ -264,7 +276,9 @@ public class CompanyInfoProvider extends ContentProvider {
             default:
                 throw new UnsupportedOperationException("URI" + uri + "not support");
         }
-        Log.d(TAG, "delete count " + count + "  , selection    " + selection);
+        if(IS_DEBUG){
+            Log.d(TAG, "delete count " + count + "  , selection    " + selection);
+        }
         return count;
     }
 
