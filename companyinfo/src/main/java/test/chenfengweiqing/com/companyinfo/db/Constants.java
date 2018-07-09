@@ -16,7 +16,7 @@ public class Constants {
     public static String OPEN_CITY_NAME_KEY = "open_city_name_key";
     public static String QUERY_TYPE_KEY = "query_type_key";
     public static int OFF_SET = 30;
-    public static final boolean IS_DEBUG = true;
+    public static final boolean IS_DEBUG = false;
 
     public @interface QueryType {
         int ALL = 0;

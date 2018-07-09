@@ -124,6 +124,6 @@ public class CompanyInfoUtils {
      */
     public static boolean isShowToast(@NonNull Context context) {
         return context.getSharedPreferences(Constants.PREFER_NAME, Context.MODE_PRIVATE)
-                .getBoolean(Constants.IS_SHOW_TOAST, true);
+                .getBoolean(Constants.IS_SHOW_TOAST, false);
     }
 }

@@ -12,15 +12,25 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
+    signingConfigs {
+        release {
+            storeFile file("${projectDir}/keystores/platform.keystore")
+            storePassword "android"
+            keyAlias "android"
+            keyPassword "android"
+        }
+    }
 
     buildTypes {
         release {
+            signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 
 }
+
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')

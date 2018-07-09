@@ -39,6 +39,7 @@ import static test.chenfengweiqing.com.companyinfo.db.Constants.IS_DEBUG;
 public class LoadDataService extends IntentService {
     private Context mContext;
     private final String CHANNEL_ID = "Load_company_info";
+    private static final int SUB_SIZE = 25;
 
     /**
      * Creates an IntentService.  Invoked by your subclass's constructor.
@@ -133,10 +134,10 @@ public class LoadDataService extends IntentService {
                         values.put(Constants.Columns.LEGAL_PERSON, legalPerson);
                         values.put(Constants.Columns.PHONE, phone);
                         String company_type;
-                        if (TextUtils.isEmpty(info) || info.length() < 20) {
+                        if (TextUtils.isEmpty(info) || info.length() < SUB_SIZE) {
                             company_type = info;
                         } else {
-                            company_type = info.substring(0, 20);
+                            company_type = info.substring(0, SUB_SIZE);
                         }
                         values.put(Constants.Columns.CONPANY_TAPE, company_type);
                         values.put(Constants.Columns.IS_CALLED, 0);
