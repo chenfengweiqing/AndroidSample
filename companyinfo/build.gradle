@@ -1,36 +1,25 @@
 apply plugin: 'com.android.application'
+apply from: "${rootDir}/android_project_common.gradle"
 
 android {
-    compileSdkVersion 26
     defaultConfig {
         applicationId "test.chenfengweiqing.com.companyinfo"
         minSdkVersion 23
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
-    }
-    signingConfigs {
-        release {
-            storeFile file("${projectDir}/keystores/platform.keystore")
-            storePassword "android"
-            keyAlias "android"
-            keyPassword "android"
-        }
     }
 
     buildTypes {
         release {
             signingConfig signingConfigs.release
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 
 }
-
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
